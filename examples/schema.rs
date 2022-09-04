@@ -3,8 +3,8 @@ use std::fs::create_dir_all;
 
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
-use {{crate_name}}::msg::{ExecuteMsg, GetCountResponse, InstantiateMsg, QueryMsg};
-use {{crate_name}}::state::State;
+use ptemplate::msg::{ExecuteMsg, InstantiateMsg, QueryMsg, Cw20DepositResponse, Cw721DepositResponse};
+use ptemplate::state::{Cw20Deposits, Cw721Deposits };
 
 fn main() {
     let mut out_dir = current_dir().unwrap();
@@ -15,6 +15,8 @@ fn main() {
     export_schema(&schema_for!(InstantiateMsg), &out_dir);
     export_schema(&schema_for!(ExecuteMsg), &out_dir);
     export_schema(&schema_for!(QueryMsg), &out_dir);
-    export_schema(&schema_for!(State), &out_dir);
-    export_schema(&schema_for!(GetCountResponse), &out_dir);
+    export_schema(&schema_for!(Cw20Deposits), &out_dir);
+    export_schema(&schema_for!(Cw721Deposits), &out_dir);
+    export_schema(&schema_for!(Cw20DepositResponse), &out_dir);
+    export_schema(&schema_for!(Cw721DepositResponse), &out_dir);
 }

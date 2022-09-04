@@ -1,15 +1,47 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "QueryMsg",
-  "anyOf": [
+  "oneOf": [
     {
       "type": "object",
       "required": [
-        "get_count"
+        "cw20_deposits"
       ],
       "properties": {
-        "get_count": {
-          "type": "object"
+        "cw20_deposits": {
+          "type": "object",
+          "required": [
+            "address"
+          ],
+          "properties": {
+            "address": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "cw721_deposits"
+      ],
+      "properties": {
+        "cw721_deposits": {
+          "type": "object",
+          "required": [
+            "address",
+            "contract"
+          ],
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "contract": {
+              "type": "string"
+            }
+          }
         }
       },
       "additionalProperties": false

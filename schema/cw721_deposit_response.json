@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cw721DepositResponse",
+  "type": "object",
+  "required": [
+    "deposits"
+  ],
+  "properties": {
+    "deposits": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/definitions/Cw721Deposits"
+          }
+        ],
+        "maxItems": 2,
+        "minItems": 2
+      }
+    }
+  },
+  "definitions": {
+    "Cw721Deposits": {
+      "type": "object",
+      "required": [
+        "contract",
+        "owner",
+        "token_id"
+      ],
+      "properties": {
+        "contract": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "token_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
